@@ -5,5 +5,12 @@
     "score": null,
     "git_branch": "main",
     "git_hash": "f016148"
+  },
+  {
+    "timestamp": "2026-04-21T09:50:39",
+    "message": "LightGBM v3 - 시간대+개인화+hr상세 90피처, val split 개선 중",
+    "score": null,
+    "git_branch": "main",
+    "git_hash": "e0f10c3"
   }
 ]
