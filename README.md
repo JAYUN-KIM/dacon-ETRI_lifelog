@@ -14,7 +14,7 @@
 - **플랫폼**: DACON
 - **목표**: 라이프로그 기반 다중 타겟 예측
 - **평가 지표**: Average Log-Loss
-- **최종 산출물**:
+- **최종 산출물**
   - 대회 제출용 예측 결과
   - 실험 로그 및 재현 가능한 코드
   - ICTC 2026 논문 초안
@@ -56,25 +56,89 @@ etri-lifelog/
 └── scripts/
     ├── auto_push.py         # 실험 기록 + 커밋 + 푸시 자동화
     └── update_readme.py     # README 자동 업데이트
+```
+
+---
+
+## 개발 환경
+
+- **OS**: Windows 11 + WSL2 (Ubuntu)
+- **Python**: 3.11
+- **Conda 환경명**: `etri`
+- **IDE**: Cursor (VSCode 기반)
+- **작업 방식**: `.ipynb` 노트북 중심 실험 + Python 스크립트 자동화
+
+---
+
+## 환경 설정
+
+```bash
+conda env create -f environment.yml
+conda activate etri
+```
+
+---
+
+## 실험 기록 및 GitHub 푸시
+
+실험이 끝난 뒤 아래 명령어로  
+**실험 로그 저장 + README 업데이트 + Git commit + Git push**를 한 번에 수행할 수 있습니다.
+
+### 기본 사용
+
+```bash
+python scripts/auto_push.py --msg "LightGBM baseline"
+```
+
+### 리더보드 점수 포함
+
+```bash
+python scripts/auto_push.py --msg "Q1 피처 추가 실험" --score 0.4823
+```
+
+### alias 사용 시
+
+```bash
+etri-push --msg "stable + shrink 0.8" --score 0.6080524417
+```
+
+---
+
+## 실험 로그 관리
+
+실험 기록은 아래 파일에 누적 저장됩니다.
+
+```bash
+experiments/log.json
+```
+
+README의 일부 영역은 `auto_push.py` 및 `update_readme.py`에 의해 자동으로 갱신됩니다.
+
+---
 
 ## Leaderboard Summary
 <!-- AUTO:SUMMARY:START -->
-- 총 실험 수: **5**
-- 오늘 업로드 수: **3**
+- 총 실험 수: **6**
+- 오늘 업로드 수: **4**
 - 최고 LB: **0.6080524417**  (2026-04-22, 첫 자동화 테스트)
-- 최신 기록: **2026-04-22** / stable baseline 0.608 유지, strong ensemble 0.617 비교, 복잡한 구조보다 안정적 구조가 더 우세함 확인
+- 최신 기록: **2026-04-22** / stable baseline 0.608 유지, strong ensemble 0.617 비교, README 날짜별 기록 자동화 정리
 <!-- AUTO:SUMMARY:END -->
+
+---
 
 ## Recent Experiments
 <!-- AUTO:EXPERIMENTS:START -->
 | 날짜 | 실험 내용 | LB | 태그 | 커밋 |
 |---|---|---:|---|---|
+| 2026-04-22 | stable baseline 0.608 유지, strong ensemble 0.617 비교, README 날짜별 기록 자동화 정리 | 0.6080524417 | exp | 49e3ce0 |
 | 2026-04-22 | stable baseline 0.608 유지, strong ensemble 0.617 비교, 복잡한 구조보다 안정적 구조가 더 우세함 확인 | 0.6080524417 | exp | 4cf6cf8 |
 | 2026-04-22 | stable baseline 0.608 유지, strong ensemble 0.617 비교, 안정적 구조가 더 우세함 확인 및 README 자동화 정리 | 0.6080524417 | exp | 39d7741 |
 | 2026-04-22 | 첫 자동화 테스트 | 0.6080524417 | best | 39d7741 |
 | - | LightGBM v3 - 시간대+개인화+hr상세 90피처, val split 개선 중 | - | - | - |
 | - | LightGBM 베이스라인 - 단순 센서 7개 피처 35개 | - | - | - |
 <!-- AUTO:EXPERIMENTS:END -->
+
+---
 
 ## Daily Upload Status
 <!-- AUTO:DAILY:START -->
@@ -85,13 +149,15 @@ etri-lifelog/
   - LightGBM v3 - 시간대+개인화+hr상세 90피처, val split 개선 중
 
 ### 2026-04-22
-- 업로드 수: **3**
+- 업로드 수: **4**
 - 당일 최고 LB: **0.6080524417**
 - 최근 실험:
-  - 첫 자동화 테스트
   - stable baseline 0.608 유지, strong ensemble 0.617 비교, 안정적 구조가 더 우세함 확인 및 README 자동화 정리
   - stable baseline 0.608 유지, strong ensemble 0.617 비교, 복잡한 구조보다 안정적 구조가 더 우세함 확인
+  - stable baseline 0.608 유지, strong ensemble 0.617 비교, README 날짜별 기록 자동화 정리
 <!-- AUTO:DAILY:END -->
+
+---
 
 ## 날짜별 진행 기록
 <!-- AUTO:TIMELINE:START -->
@@ -108,6 +174,27 @@ etri-lifelog/
   - 첫 자동화 테스트 (LB: 0.6080524417)
   - stable baseline 0.608 유지, strong ensemble 0.617 비교, 안정적 구조가 더 우세함 확인 및 README 자동화 정리 (LB: 0.6080524417)
   - stable baseline 0.608 유지, strong ensemble 0.617 비교, 복잡한 구조보다 안정적 구조가 더 우세함 확인 (LB: 0.6080524417)
+  - stable baseline 0.608 유지, strong ensemble 0.617 비교, README 날짜별 기록 자동화 정리 (LB: 0.6080524417)
 - 다음 이어서 할 일:
-  - `stable baseline 0.608 유지, strong ensemble 0.617 비교, 복잡한 구조보다 안정적 구조가 더 우세함 확인` 기준으로 다음 실험 이어가기
+  - `stable baseline 0.608 유지, strong ensemble 0.617 비교, README 날짜별 기록 자동화 정리` 기준으로 다음 실험 이어가기
 <!-- AUTO:TIMELINE:END -->
+
+---
+
+## 논문 작성
+
+- **제출처**: ICTC 2026 EDAS
+- **트랙**: IWETRIAI
+- **형식**: IEEE 6-page Full Paper
+- **마감일**: 2026-06-26
+
+이 저장소는 대회 성능 향상뿐 아니라,  
+최종적으로 **논문 제출용 결과 정리 및 재현 가능한 실험 관리**를 목표로 합니다.
+
+---
+
+## 비고
+
+- 원본 데이터 및 제출 파일은 `.gitignore`로 관리합니다.
+- 실험 결과는 가능한 한 재현 가능하도록 기록합니다.
+- README는 실험 진행 상황에 따라 자동 갱신됩니다.
