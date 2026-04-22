@@ -56,3 +56,58 @@ etri-lifelog/
 └── scripts/
     ├── auto_push.py         # 실험 기록 + 커밋 + 푸시 자동화
     └── update_readme.py     # README 자동 업데이트
+
+## Leaderboard Summary
+<!-- AUTO:SUMMARY:START -->
+- 총 실험 수: **5**
+- 오늘 업로드 수: **3**
+- 최고 LB: **0.6080524417**  (2026-04-22, 첫 자동화 테스트)
+- 최신 기록: **2026-04-22** / stable baseline 0.608 유지, strong ensemble 0.617 비교, 복잡한 구조보다 안정적 구조가 더 우세함 확인
+<!-- AUTO:SUMMARY:END -->
+
+## Recent Experiments
+<!-- AUTO:EXPERIMENTS:START -->
+| 날짜 | 실험 내용 | LB | 태그 | 커밋 |
+|---|---|---:|---|---|
+| 2026-04-22 | stable baseline 0.608 유지, strong ensemble 0.617 비교, 복잡한 구조보다 안정적 구조가 더 우세함 확인 | 0.6080524417 | exp | 4cf6cf8 |
+| 2026-04-22 | stable baseline 0.608 유지, strong ensemble 0.617 비교, 안정적 구조가 더 우세함 확인 및 README 자동화 정리 | 0.6080524417 | exp | 39d7741 |
+| 2026-04-22 | 첫 자동화 테스트 | 0.6080524417 | best | 39d7741 |
+| - | LightGBM v3 - 시간대+개인화+hr상세 90피처, val split 개선 중 | - | - | - |
+| - | LightGBM 베이스라인 - 단순 센서 7개 피처 35개 | - | - | - |
+<!-- AUTO:EXPERIMENTS:END -->
+
+## Daily Upload Status
+<!-- AUTO:DAILY:START -->
+### unknown
+- 업로드 수: **2**
+- 최근 실험:
+  - LightGBM 베이스라인 - 단순 센서 7개 피처 35개
+  - LightGBM v3 - 시간대+개인화+hr상세 90피처, val split 개선 중
+
+### 2026-04-22
+- 업로드 수: **3**
+- 당일 최고 LB: **0.6080524417**
+- 최근 실험:
+  - 첫 자동화 테스트
+  - stable baseline 0.608 유지, strong ensemble 0.617 비교, 안정적 구조가 더 우세함 확인 및 README 자동화 정리
+  - stable baseline 0.608 유지, strong ensemble 0.617 비교, 복잡한 구조보다 안정적 구조가 더 우세함 확인
+<!-- AUTO:DAILY:END -->
+
+## 날짜별 진행 기록
+<!-- AUTO:TIMELINE:START -->
+### unknown 어디까지 했는지
+- 진행 내용:
+  - LightGBM 베이스라인 - 단순 센서 7개 피처 35개
+  - LightGBM v3 - 시간대+개인화+hr상세 90피처, val split 개선 중
+- 다음 이어서 할 일:
+  - `LightGBM v3 - 시간대+개인화+hr상세 90피처, val split 개선 중` 기준으로 다음 실험 이어가기
+
+### 2026-04-22 어디까지 했는지
+- 그날 최고 점수: **0.6080524417**
+- 진행 내용:
+  - 첫 자동화 테스트 (LB: 0.6080524417)
+  - stable baseline 0.608 유지, strong ensemble 0.617 비교, 안정적 구조가 더 우세함 확인 및 README 자동화 정리 (LB: 0.6080524417)
+  - stable baseline 0.608 유지, strong ensemble 0.617 비교, 복잡한 구조보다 안정적 구조가 더 우세함 확인 (LB: 0.6080524417)
+- 다음 이어서 할 일:
+  - `stable baseline 0.608 유지, strong ensemble 0.617 비교, 복잡한 구조보다 안정적 구조가 더 우세함 확인` 기준으로 다음 실험 이어가기
+<!-- AUTO:TIMELINE:END -->

@@ -1,176 +1,119 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-
 import argparse
 import json
 import subprocess
 import sys
-from pathlib import Path
 from datetime import datetime
+from pathlib import Path
 
-ROOT = Path("/mnt/c/etri-lifelog")
-LOG_PATH = ROOT / "experiments" / "log.json"
-README_PATH = ROOT / "README.md"
-
-DEFAULT_GITIGNORE_BLOCK = """
-# ETRI competition local data
-data/raw/data/
-submissions/
-""".strip()
+ROOT = Path('/mnt/c/etri-lifelog')
+LOG_PATH = ROOT / 'experiments' / 'log.json'
+README_UPDATER = ROOT / 'scripts' / 'update_readme.py'
+GITIGNORE = ROOT / '.gitignore'
 
 
-def run(cmd, cwd=ROOT, capture=False, check=True):
-    print("$", " ".join(cmd))
-    if capture:
-        return subprocess.run(cmd, cwd=cwd, text=True, capture_output=True, check=check)
-    return subprocess.run(cmd, cwd=cwd, check=check)
+def run(cmd, cwd=ROOT, check=True):
+    print('>', ' '.join(cmd))
+    return subprocess.run(cmd, cwd=str(cwd), check=check)
 
 
-def ensure_git_repo():
-    if not (ROOT / ".git").exists():
-        raise RuntimeError(f"Git repository not found: {ROOT}")
-
-
-def ensure_experiments_dir():
-    LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
-
-
-def ensure_log_file():
-    ensure_experiments_dir()
-    if not LOG_PATH.exists():
-        LOG_PATH.write_text("[]\n", encoding="utf-8")
-
-
-def load_logs():
-    ensure_log_file()
-    text = LOG_PATH.read_text(encoding="utf-8").strip()
-    if not text:
-        return []
-    data = json.loads(text)
-    if isinstance(data, dict):
-        data = data.get("experiments", [])
-    if not isinstance(data, list):
-        raise ValueError("experiments/log.json must be a JSON list or {'experiments': [...]} format")
-    return data
-
-
-def save_logs(logs):
-    LOG_PATH.write_text(json.dumps(logs, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+def ensure_dirs():
+    (ROOT / 'experiments').mkdir(parents=True, exist_ok=True)
+    (ROOT / 'scripts').mkdir(parents=True, exist_ok=True)
 
 
 def ensure_gitignore():
-    gitignore = ROOT / ".gitignore"
-    if not gitignore.exists():
-        gitignore.write_text(DEFAULT_GITIGNORE_BLOCK + "\n", encoding="utf-8")
-        return
-
-    text = gitignore.read_text(encoding="utf-8")
+    wanted = ['data/raw/data/', 'submissions/']
+    existing = ''
+    if GITIGNORE.exists():
+        existing = GITIGNORE.read_text(encoding='utf-8')
+    lines = existing.splitlines()
     changed = False
-    for rule in ["data/raw/data/", "submissions/"]:
-        if rule not in text:
-            text = text.rstrip() + "\n" + rule + "\n"
+    for item in wanted:
+        if item not in lines:
+            lines.append(item)
             changed = True
     if changed:
-        gitignore.write_text(text, encoding="utf-8")
+        GITIGNORE.write_text('\n'.join([x for x in lines if x.strip()]) + '\n', encoding='utf-8')
+
+
+def load_logs():
+    if not LOG_PATH.exists():
+        return []
+    try:
+        with open(LOG_PATH, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+    except Exception:
+        return []
+    if isinstance(data, dict):
+        data = data.get('experiments', [])
+    return data if isinstance(data, list) else []
+
+
+def save_logs(logs):
+    LOG_PATH.write_text(json.dumps(logs, ensure_ascii=False, indent=2), encoding='utf-8')
 
 
 def get_head_commit_short():
     try:
-        res = run(["git", "rev-parse", "--short", "HEAD"], capture=True, check=True)
-        return res.stdout.strip()
+        out = subprocess.check_output(['git', 'rev-parse', '--short', 'HEAD'], cwd=str(ROOT), text=True).strip()
+        return out
     except Exception:
-        return None
+        return '-'
 
 
-def detect_tag(score):
-    if score in [None, ""]:
-        return "exp"
-    try:
-        score = float(score)
-    except Exception:
-        return "exp"
-
-    logs = load_logs()
-    scored = [x for x in logs if x.get("score") not in [None, ""]]
-    if not scored:
-        return "best"
-    best_so_far = min(float(x["score"]) for x in scored)
-    return "best" if score < best_so_far else "exp"
-
-
-def append_experiment_log(message, score=None, tag=None):
+def append_log(message, score=None, tag='exp'):
     logs = load_logs()
     now = datetime.now()
-
-    if tag is None or tag == "":
-        tag = detect_tag(score)
-
-    entry = {
-        "timestamp": now.strftime("%Y-%m-%d %H:%M:%S"),
-        "date": now.strftime("%Y-%m-%d"),
-        "message": message,
-        "score": None if score in [None, ""] else float(score),
-        "tag": tag,
-        "commit": get_head_commit_short() or "-"
-    }
-    logs.append(entry)
+    logs.append({
+        'timestamp': now.strftime('%Y-%m-%d %H:%M:%S'),
+        'date': now.strftime('%Y-%m-%d'),
+        'message': message,
+        'score': score,
+        'tag': tag,
+        'commit': get_head_commit_short(),
+    })
     save_logs(logs)
-    print(f"log appended -> {LOG_PATH}")
-    return entry
 
 
 def update_readme():
-    script = ROOT / "scripts" / "update_readme.py"
-    if not script.exists():
-        raise FileNotFoundError(f"update_readme.py not found: {script}")
-    run([sys.executable, str(script)], cwd=ROOT)
+    if README_UPDATER.exists():
+        run([sys.executable, str(README_UPDATER)])
 
 
-def git_add_commit_push(message, score=None):
-    date_prefix = datetime.now().strftime("%Y-%m-%d")
-    commit_msg = f"[{date_prefix}] {message}"
-    if score not in [None, ""]:
-        commit_msg += f" | LB {float(score):.10f}"
+def git_commit_and_push(message, score=None, no_push=False):
+    ensure_gitignore()
+    run(['git', 'add', '-A'])
 
-    run(["git", "add", "-A"], cwd=ROOT)
+    date_prefix = datetime.now().strftime('%Y-%m-%d')
+    if score is None:
+        commit_msg = f'[{date_prefix}] {message}'
+    else:
+        commit_msg = f'[{date_prefix}] {message} | LB {float(score):.10f}'
 
-    diff_check = run(["git", "diff", "--cached", "--quiet"], cwd=ROOT, check=False)
-    if diff_check.returncode == 0:
-        print("No staged changes to commit.")
+    status = subprocess.check_output(['git', 'status', '--porcelain'], cwd=str(ROOT), text=True).strip()
+    if not status:
+        print('변경 사항이 없어 commit/push를 건너뜁니다.')
         return
 
-    run(["git", "commit", "-m", commit_msg], cwd=ROOT)
-    run(["git", "push", "origin", "HEAD"], cwd=ROOT)
-
-
-def parse_args():
-    parser = argparse.ArgumentParser(description="Auto log + README update + git push for ETRI experiments")
-    parser.add_argument("--msg", required=True, help="실험 설명")
-    parser.add_argument("--score", default=None, help="리더보드 점수 예: 0.6080524417")
-    parser.add_argument("--tag", default=None, help="safe / exp / fail / best 등 수동 지정")
-    parser.add_argument("--no-push", action="store_true", help="git push 없이 log/README까지만")
-    parser.add_argument("--no-readme", action="store_true", help="README 자동 갱신 생략")
-    return parser.parse_args()
+    run(['git', 'commit', '-m', commit_msg])
+    if not no_push:
+        run(['git', 'push', 'origin', 'HEAD'])
 
 
 def main():
-    args = parse_args()
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--msg', required=True, help='실험 설명')
+    parser.add_argument('--score', type=float, default=None, help='LB 점수')
+    parser.add_argument('--tag', default='exp', help='태그 예: safe, exp, best')
+    parser.add_argument('--no-push', action='store_true', help='git push는 하지 않음')
+    args = parser.parse_args()
 
-    ensure_git_repo()
-    ensure_gitignore()
-
-    append_experiment_log(args.msg, score=args.score, tag=args.tag)
-
-    if not args.no_readme:
-        update_readme()
-
-    if args.no_push:
-        print("Done without git push (--no-push).")
-        return
-
-    git_add_commit_push(args.msg, score=args.score)
-    print("All done.")
+    ensure_dirs()
+    append_log(args.msg, args.score, args.tag)
+    update_readme()
+    git_commit_and_push(args.msg, args.score, no_push=args.no_push)
+    print('완료되었습니다.')
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
