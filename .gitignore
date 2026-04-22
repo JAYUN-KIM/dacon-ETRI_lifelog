@@ -35,3 +35,4 @@ mlruns/
 # OS
 .DS_Store
 Thumbs.db
+data/raw/data/
