@@ -60,5 +60,13 @@
     "score": 0.6082991747,
     "tag": "exp",
     "commit": "87dee83"
+  },
+  {
+    "timestamp": "2026-04-23 11:38:02",
+    "date": "2026-04-23",
+    "message": "stable baseline에서 shrink alpha 미세조정 실험 진행, alpha 0.78은 악화, 0.80은 개선, 0.85에서 0.6064374291로 최고점 갱신",
+    "score": 0.6064374291,
+    "tag": "exp",
+    "commit": "92c4f2e"
   }
 ]

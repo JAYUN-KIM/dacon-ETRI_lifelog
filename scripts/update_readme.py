@@ -149,7 +149,7 @@ def build_timeline(logs, limit=14):
         scored = [x for x in items if x.get('score') is not None]
         best = min(scored, key=lambda x: float(x['score'])) if scored else None
 
-        blocks.append(f"### {d} 어디까지 했는지")
+        blocks.append(f"### {d}")
         if best:
             blocks.append(f"- 그날 최고 점수: **{fmt_score(best.get('score'))}**")
         blocks.append('- 진행 내용:')
