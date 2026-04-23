@@ -52,5 +52,13 @@
     "score": 0.6076386989,
     "tag": "exp",
     "commit": "cbdec5e"
+  },
+  {
+    "timestamp": "2026-04-23 11:28:01",
+    "date": "2026-04-23",
+    "message": "stable baseline + fixed alpha 0.78",
+    "score": 0.6082991747,
+    "tag": "exp",
+    "commit": "87dee83"
   }
 ]
