@@ -84,5 +84,13 @@
     "score": 0.6000012518,
     "tag": "exp",
     "commit": "7be2f7d"
+  },
+  {
+    "timestamp": "2026-04-24 14:51:30",
+    "date": "2026-04-24",
+    "message": "stable baseline 유지, shrink alpha 0.90과 fixed blend 비율 조정 실험 진행, 0.3:0.7에서 0.5991758604로 최고점 갱신",
+    "score": 0.5991758604,
+    "tag": "exp",
+    "commit": "3953db7"
   }
 ]
