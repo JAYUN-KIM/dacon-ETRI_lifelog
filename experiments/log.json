@@ -108,5 +108,13 @@
     "score": 0.5979394488,
     "tag": "exp",
     "commit": "35307c0"
+  },
+  {
+    "timestamp": "2026-04-25 13:26:26",
+    "date": "2026-04-25",
+    "message": "stable baseline 기반 conservative shrink와 CatBoost-heavy ensemble 탐색, alpha 0.96 + blend 0.2:0.8에서 0.5979394488로 최고점 갱신, 실험 종료 후 논문 초안 작성 단계로 전환",
+    "score": 0.5979394488,
+    "tag": "exp",
+    "commit": "a457867"
   }
 ]
