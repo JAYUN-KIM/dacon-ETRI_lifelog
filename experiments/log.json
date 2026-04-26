@@ -124,5 +124,13 @@
     "score": 0.5978689256,
     "tag": "exp",
     "commit": "eaeb50f"
+  },
+  {
+    "timestamp": "2026-04-26 16:56:42",
+    "date": "2026-04-26",
+    "message": "final probe result 확인, alpha 0.98 + blend 0.1:0.9는 0.5980970493로 소폭 악화, 현재 최고 구성은 alpha 0.98 + blend 0.2:0.8 with 0.5978689256로 확정",
+    "score": 0.5978689256,
+    "tag": "exp",
+    "commit": "a1e09be"
   }
 ]
