@@ -116,5 +116,13 @@
     "score": 0.5979394488,
     "tag": "exp",
     "commit": "a457867"
+  },
+  {
+    "timestamp": "2026-04-26 16:30:21",
+    "date": "2026-04-26",
+    "message": "probe experiment + fixed alpha 0.98 + fixed blend 0.2:0.8",
+    "score": 0.5978689256,
+    "tag": "exp",
+    "commit": "eaeb50f"
   }
 ]
