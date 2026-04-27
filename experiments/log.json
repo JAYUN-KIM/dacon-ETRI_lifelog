@@ -132,5 +132,13 @@
     "score": 0.5978689256,
     "tag": "exp",
     "commit": "a1e09be"
+  },
+  {
+    "timestamp": "2026-04-27 11:37:44",
+    "date": "2026-04-27",
+    "message": "alpha 0.98 + blend 0.15:0.85는 0.5979019616으로 소폭 악화, 현재 최고 구성은 stable baseline + alpha 0.98 + blend 0.2:0.8 with 0.5978689256로 확정하고 실험을 마감, 이후 논문 작성 단계로 전환",
+    "score": 0.5978689256,
+    "tag": "exp",
+    "commit": "40d199d"
   }
 ]
