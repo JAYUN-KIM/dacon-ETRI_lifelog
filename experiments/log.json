@@ -164,5 +164,13 @@
     "score": 0.5978689256,
     "tag": "exp",
     "commit": "0a77c78"
+  },
+  {
+    "timestamp": "2026-04-29 11:02:08",
+    "date": "2026-04-29",
+    "message": "structure experiment + small recent/change feature set added to stable baseline resulted in strong degradation to 0.606743338, confirming that the current task favors stable conservative setup over change-heavy features",
+    "score": 0.5978689256,
+    "tag": "exp",
+    "commit": "ac63041"
   }
 ]
