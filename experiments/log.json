@@ -156,5 +156,13 @@
     "score": 0.5978689256,
     "tag": "exp",
     "commit": "dac5b48"
+  },
+  {
+    "timestamp": "2026-04-29 10:56:50",
+    "date": "2026-04-29",
+    "message": "structure experiment + target-wise alpha split 결과 0.598044066으로 소폭 악화, 공통 alpha 0.98 + blend 0.2:0.8이 더 안정적임을 확인",
+    "score": 0.5978689256,
+    "tag": "exp",
+    "commit": "0a77c78"
   }
 ]
