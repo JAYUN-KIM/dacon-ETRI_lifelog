@@ -172,5 +172,13 @@
     "score": 0.5978689256,
     "tag": "exp",
     "commit": "ac63041"
+  },
+  {
+    "timestamp": "2026-04-29 11:18:38",
+    "date": "2026-04-29",
+    "message": "4월 29일 구조 실험 3종 수행: target-wise alpha split(0.598044066), small recent/change features(0.606743338), logit-space blending(0.5979976852) 모두 기존 최고를 넘지 못했고, stable baseline + alpha 0.98 + blend 0.2:0.8 + weighted probability average가 최적 구성으로 재확인됨",
+    "score": 0.5978689256,
+    "tag": "exp",
+    "commit": "a3d2e42"
   }
 ]
