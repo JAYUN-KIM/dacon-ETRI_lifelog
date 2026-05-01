@@ -220,5 +220,13 @@
     "score": 0.5957800203,
     "tag": "exp",
     "commit": "dc6e14a"
+  },
+  {
+    "timestamp": "2026-05-01 11:57:11",
+    "date": "2026-05-01",
+    "message": "seed ensemble 구조 실험 정리, 3-seed ensemble은 0.5957800203으로 큰 폭 개선되었으나 5-seed ensemble은 0.5963145855로 소폭 악화되어 현재는 3-seed + 타겟별 블렌드 라우팅 구성이 최적임을 확인",
+    "score": 0.5957800203,
+    "tag": "exp",
+    "commit": "5256c8f"
   }
 ]
