@@ -244,5 +244,13 @@
     "score": 0.5967032976,
     "tag": "exp",
     "commit": "e2f5259"
+  },
+  {
+    "timestamp": "2026-05-02 18:31:08",
+    "date": "2026-05-02",
+    "message": "새로운 피처 축 실험 3종 수행, rich mUsageStats는 0.59726345, minimal mUsageStats는 0.5967032976, target history prior는 0.596075678을 기록했으나 현재 최고인 3-seed ensemble + 타겟별 라우팅 0.5957800203은 넘지 못함, 내일부터는 기존 구조를 벗어난 완전 신규 접근으로 전환 예정",
+    "score": 0.5957800203,
+    "tag": "exp",
+    "commit": "8ca0cfc"
   }
 ]
