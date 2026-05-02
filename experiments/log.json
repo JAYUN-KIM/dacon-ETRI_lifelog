@@ -236,5 +236,13 @@
     "score": 0.5957800203,
     "tag": "exp",
     "commit": "06e6d36"
+  },
+  {
+    "timestamp": "2026-05-02 18:04:37",
+    "date": "2026-05-02",
+    "message": "새로운 피처 축 실험, mUsageStats를 최소 count/ratio feature만 남겨 3-seed ensemble과 타겟별 블렌드 라우팅 구조에 추가하여 rich usage feature의 과적합 가능성 확인",
+    "score": 0.5967032976,
+    "tag": "exp",
+    "commit": "e2f5259"
   }
 ]
