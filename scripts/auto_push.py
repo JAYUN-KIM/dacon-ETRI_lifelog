@@ -83,6 +83,8 @@ def update_readme():
 def git_commit_and_push(message, score=None, no_push=False):
     ensure_gitignore()
     run(['git', 'add', '-A'])
+    # CatBoost writes volatile training logs; keep experiment commits focused on code/docs.
+    run(['git', 'reset', '--', 'catboost_info', 'scripts/catboost_info'], check=False)
 
     date_prefix = datetime.now().strftime('%Y-%m-%d')
     if score is None:
@@ -90,8 +92,8 @@ def git_commit_and_push(message, score=None, no_push=False):
     else:
         commit_msg = f'[{date_prefix}] {message} | LB {float(score):.10f}'
 
-    status = subprocess.check_output(['git', 'status', '--porcelain'], cwd=str(ROOT), text=True).strip()
-    if not status:
+    staged = subprocess.run(['git', 'diff', '--cached', '--quiet'], cwd=str(ROOT)).returncode != 0
+    if not staged:
         print('변경 사항이 없어 commit/push를 건너뜁니다.')
         return
 
