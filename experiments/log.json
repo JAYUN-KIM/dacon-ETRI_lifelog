@@ -264,8 +264,8 @@
   {
     "timestamp": "2026-05-04 13:15:13",
     "date": "2026-05-04",
-    "message": "test",
-    "score": 0.1,
+    "message": "5월 4일 실험 정리, q6545 Q 라우팅 강화 후보는 0.595916851로 악화되어 Q를 더 LGB-heavy하게 미는 방향은 보류하고, seed 조합/anchor blend 후보와 7개 타겟 예측 상관 과잉을 완화하는 copula correlation alignment 새 축을 개발함",
+    "score": 0.59553,
     "tag": "exp",
     "commit": "588f8ea"
   }
