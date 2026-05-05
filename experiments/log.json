@@ -272,9 +272,9 @@
   {
     "timestamp": "2026-05-05 16:49:13",
     "date": "2026-05-05",
-    "message": "state-transition",
-    "score": null,
-    "tag": "exp",
+    "message": "state-transition prior 축 실험 정리, q14_s07 후보가 0.5922690071로 크게 개선되었고 target-wise tw_b 후보가 0.5919692903으로 추가 최고점을 갱신함. 개인별 최근 타겟 상태 전이 신호가 유효함을 확인했으며 내일은 Q2/Q3 강화형 tw_qboost1과 S3 제거형 tw_b_s3zero를 이어서 검증 예정",
+    "score": 0.5919692903,
+    "tag": "best",
     "commit": "23ba4cf"
   }
 ]
