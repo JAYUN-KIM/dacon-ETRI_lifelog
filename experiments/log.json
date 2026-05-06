@@ -276,5 +276,13 @@
     "score": 0.5919692903,
     "tag": "best",
     "commit": "23ba4cf"
+  },
+  {
+    "timestamp": "2026-05-06 15:00:22",
+    "date": "2026-05-06",
+    "message": "5월 6일 target-dynamics reset 및 subject-date interpolation prior 실험 정리, 센서 feature 확장 대신 개인별 Q/S 상태 전이와 가까운 날짜 label interpolation을 활용해 0.5892681038로 최고점 갱신",
+    "score": 0.5892681038,
+    "tag": "best",
+    "commit": "60989b2"
   }
 ]

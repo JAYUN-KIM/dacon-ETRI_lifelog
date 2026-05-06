@@ -5,7 +5,7 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
-ROOT = Path('/mnt/c/etri-lifelog')
+ROOT = Path(__file__).resolve().parents[1]
 LOG_PATH = ROOT / 'experiments' / 'log.json'
 README_UPDATER = ROOT / 'scripts' / 'update_readme.py'
 GITIGNORE = ROOT / '.gitignore'

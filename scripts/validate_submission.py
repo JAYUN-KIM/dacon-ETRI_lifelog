@@ -4,7 +4,7 @@ from pathlib import Path
 import pandas as pd
 
 
-ROOT = Path("/mnt/c/etri-lifelog")
+ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_SUB_DIR = ROOT / "data" / "raw" / "data" / "submissions"
 TARGETS = ["Q1", "Q2", "Q3", "S1", "S2", "S3", "S4"]
 REQUIRED_COLUMNS = ["subject_id", "sleep_date", "lifelog_date"] + TARGETS

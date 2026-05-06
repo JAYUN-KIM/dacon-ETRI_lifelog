@@ -15,8 +15,8 @@
 ## 현재 성과
 
 <!-- AUTO:PROJECT_STATUS:START -->
-- 최고 Public LB: **0.5919692903**
-- 최신 최고점 갱신일: **2026-05-05**
+- 최고 Public LB: **0.5892681038**
+- 최신 최고점 갱신일: **2026-05-06**
 - 핵심 개선 축: subject별 최근 타겟 상태 전이를 활용한 state-transition prior
 - 상세 실험 기록은 `experiments/` 디렉토리에 분리 보관
 <!-- AUTO:PROJECT_STATUS:END -->

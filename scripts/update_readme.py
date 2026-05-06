@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 
 
-ROOT = Path("/mnt/c/etri-lifelog")
+ROOT = Path(__file__).resolve().parents[1]
 LOG_PATH = ROOT / "experiments" / "log.json"
 README_PATH = ROOT / "README.md"
 
