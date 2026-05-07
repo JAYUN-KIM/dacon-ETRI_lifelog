@@ -284,5 +284,13 @@
     "score": 0.5892681038,
     "tag": "best",
     "commit": "60989b2"
+  },
+  {
+    "timestamp": "2026-05-07 15:51:15",
+    "date": "2026-05-07",
+    "message": "5월 7일 calibration 및 adaptive date-confidence prior 실험 정리, mean-align 보정으로 0.5892082651까지 개선 후 날짜 거리 confidence 기반 adaptive date prior blend로 0.5886910305 최고점 갱신",
+    "score": 0.5886910305,
+    "tag": "best",
+    "commit": "5a904fb"
   }
 ]
