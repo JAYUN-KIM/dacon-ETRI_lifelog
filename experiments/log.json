@@ -292,5 +292,13 @@
     "score": 0.5886910305,
     "tag": "best",
     "commit": "5a904fb"
+  },
+  {
+    "timestamp": "2026-05-08 01:30:20",
+    "date": "2026-05-08",
+    "message": "5월 8일 subject reliability 기반 adaptive date prior 실험 정리, mean-align g035는 0.5886634521로 소폭 개선되었고 subject별 prior 신뢰도를 반영한 date prior blend가 0.5884463893으로 최고점 갱신, streak reversion prior는 0.589895946으로 악화되어 보류",
+    "score": 0.5884463893,
+    "tag": "best",
+    "commit": "dd76797"
   }
 ]
