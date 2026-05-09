@@ -300,5 +300,13 @@
     "score": 0.5884463893,
     "tag": "best",
     "commit": "dd76797"
+  },
+  {
+    "timestamp": "2026-05-09 20:26:27",
+    "date": "2026-05-09",
+    "message": "5월 9일 target별 reliability scale 정교화 실험 정리, mean-align g030은 0.5884235486으로 소폭 개선되었고 g030 anchor 기준 targetscale soft 후보가 0.5883722159로 최고점 갱신, mixed date-bracket 후보는 0.5884111821로 개선되었으나 주력 축은 targetscale soft임을 확인",
+    "score": 0.5883722159,
+    "tag": "best",
+    "commit": "7eb1ee7"
   }
 ]
