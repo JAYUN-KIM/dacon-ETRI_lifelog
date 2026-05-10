@@ -51,8 +51,9 @@ def build_status(logs):
     else:
         lines.append("- 최고 Public LB: **기록 전**")
 
-    lines.append("- 핵심 개선 축: subject별 최근 타겟 상태 전이를 활용한 state-transition prior")
-    lines.append("- 상세 실험 기록은 `experiments/` 디렉토리에 분리 보관")
+    lines.append("- 핵심 개선 축: 개인별 날짜/상태 prior, target-wise calibration, 보수적 앵커 블렌딩")
+    lines.append("- 최근 연구 축: 원천 센서 기반 raw-context feature와 공동 타겟 패턴 보정")
+    lines.append("- 상세 실험 기록: `experiments/log.json`")
     return "\n".join(lines)
 
 

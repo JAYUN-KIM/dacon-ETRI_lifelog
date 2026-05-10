@@ -308,5 +308,13 @@
     "score": 0.5883722159,
     "tag": "best",
     "commit": "7eb1ee7"
+  },
+  {
+    "timestamp": "2026-05-10 17:04:33",
+    "date": "2026-05-10",
+    "message": "5월 10일 실험 정리, 공식 규정과 평가 구조를 원점에서 재확인하고 공동 타겟 패턴 보정과 원천 센서 raw-context reset 후보를 생성했다. pattern projection 계열이 0.5882844028까지 개선되었고, raw-context 센서는 단독 축보다는 앵커에 얇게 섞는 보조 축으로 해석했다",
+    "score": 0.5882844028,
+    "tag": "best",
+    "commit": "d826c16"
   }
 ]
