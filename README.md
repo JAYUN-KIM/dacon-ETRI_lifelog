@@ -15,8 +15,8 @@
 ## 현재 성과
 
 <!-- AUTO:PROJECT_STATUS:START -->
-- 최고 Public LB: **0.5877548490**
-- 최신 최고점 갱신일: **2026-05-12**
+- 최고 Public LB: **0.5877431660**
+- 최신 최고점 갱신일: **2026-05-15**
 - 핵심 개선 축: 개인별 날짜/상태 prior, target-wise calibration, 보수적 앵커 블렌딩
 - 최근 연구 축: 원천 센서 기반 raw-context feature와 공동 타겟 패턴 보정
 - 상세 실험 기록: `experiments/log.json`
