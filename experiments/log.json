@@ -348,5 +348,13 @@
     "score": 0.587743166,
     "tag": "best",
     "commit": "f637bd4"
+  },
+  {
+    "timestamp": "2026-05-16 13:49:13",
+    "date": "2026-05-16",
+    "message": "5월 16일 실험 정리, 기존 축을 버리고 센서 기록 밀도 coverage prior와 subject별 미래 라벨 평균 외삽이라는 두 개의 새 축을 검증했다. coverage_s_tiny는 0.5877678753으로 악화되어 중단했고, subject_mean_s_only는 0.5877530286으로 최고점에 근접했지만 넘지 못했으며, subject_mean_qs_soft는 0.587840667로 악화되어 Q/S 전체 평균 이동은 보류하기로 했다",
+    "score": 0.587743166,
+    "tag": "exp",
+    "commit": "31dfff5"
   }
 ]
