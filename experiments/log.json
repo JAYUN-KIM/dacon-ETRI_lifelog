@@ -356,5 +356,13 @@
     "score": 0.587743166,
     "tag": "exp",
     "commit": "31dfff5"
+  },
+  {
+    "timestamp": "2026-05-18 22:11:35",
+    "date": "2026-05-18",
+    "message": "ETRI 대회 최종 정리, 2026-05-18 기준 실험을 종료하고 최고 Public LB 0.587743166까지의 핵심 흐름을 README와 최종 회고 문서로 정리했다. 안정적인 일별 센서 집계, target-wise routing, 3-seed ensemble, subject-date prior, sleep-window 재정렬, S계열 수면 지표 proxy가 주요 개선 축이었으며 이후 작업은 논문 작성 단계로 전환한다",
+    "score": 0.587743166,
+    "tag": "final",
+    "commit": "95ac64e"
   }
 ]
